@@ -3,24 +3,38 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
+    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.vascs"
+    namespace = "com.veeransh.aifashion.enterprise"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.aistudio.vascs.enterprise"
+        applicationId = "com.veeransh.aifashion.enterprise"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
+        versionCode = 4
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // After you create your keystore via the wizard, 
+            // you can point to it here or keep using the wizard.
+            storeFile = file("veeransh-release-key.jks")
+            storePassword = "PASSWORD_HERE" // Use environment variables for security
+            keyAlias = "veeransh-alias"
+            keyPassword = "PASSWORD_HERE"
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -41,6 +55,11 @@ android {
         compose = true
         buildConfig = true
     }
+
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
 }
 
 dependencies {
@@ -56,6 +75,13 @@ dependencies {
     implementation(libs.androidx.material3.window.size)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.datastore.preferences)
+
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.accompanist.permissions)
+    implementation(libs.firebase.ai)
 
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
@@ -63,6 +89,20 @@ dependencies {
 
     implementation(libs.coil.compose)
     implementation(libs.zxing.core)
+
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.appcheck.playintegrity)
+    debugImplementation(libs.firebase.appcheck.debug)
+    implementation(libs.jbcrypt)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

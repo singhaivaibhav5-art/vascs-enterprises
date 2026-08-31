@@ -1,4 +1,4 @@
-# VASCS Enterprise - Veeransh AI Saree Catalogue Studio (Android Application)
+# VEERANSH AI FASHION - Veeransh AI Saree Catalogue Studio (Android Application)
 
 Native Android application built with Kotlin, Jetpack Compose, Material Design 3, and Room SQLite Database.
 

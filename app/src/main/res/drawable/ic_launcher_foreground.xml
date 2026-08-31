@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-    <!-- Saree hanger / crown icon silhouette -->
-    <path
-        android:fillColor="#FFD700"
-        android:pathData="M54,30 C51,30 48,32 48,35 C48,37.5 49.5,39.5 52,40 C40,45 28,52 24,58 C22.5,60.25 24,63 26.5,63 L81.5,63 C84,63 85.5,60.25 84,58 C80,52 68,45 56,40 C58.5,39.5 60,37.5 60,35 C60,32 57,30 54,30 Z M54,34 C54.55,34 55,34.45 55,35 C55,35.55 54.55,36 54,36 C53.45,36 53,35.55 53,35 C53,34.45 53.45,34 54,34 Z" />
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M30,68 h48 v6 h-48 z M34,77 h40 v4 h-40 z" />
-</vector>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_foreground"
+    android:inset="16%" />

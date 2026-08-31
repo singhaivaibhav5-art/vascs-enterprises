@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- VEERANSH AI FASHION BRAND COLORS -->
+    <color name="brand_emerald">#0A5C36</color>
+    <color name="brand_royal_gold">#C9A86A</color>
+    <color name="brand_rose_gold">#D4A0A0</color>
+    <color name="brand_cream">#FEF9F0</color>
 </resources>
